@@ -11,3 +11,12 @@
 * Tạo website trên cyberpanel và giải nén vào thư mục tương ứng
 * Tạo database và import database
 * Chỉnh sửa file `.env` (laravel), `wp-config.php` (wordpress),
+* Chỉnh http tự động sang https trong laravel thêm
+```
+  rewrite  {
+    enable                  1
+    autoLoadHtaccess        1
+    rewriteCond %{HTTPS} !=on
+    rewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+} vào file vhost.conf
+```
